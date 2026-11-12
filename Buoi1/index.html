@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f3ee">
+  <meta name="description" content="Nguyễn Hoàng Khương — kinh nghiệm thực tế tại Woody House, đang học Thương mại Điện tử tại UEH. Tìm hiểu hành trình, năng lực và định hướng nghề nghiệp.">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Nguyễn Hoàng Khương | E-commerce & Business">
+  <meta property="og:description" content="Kết nối trải nghiệm vận hành thực tế với tư duy Thương mại Điện tử tại UEH.">
+  <title>Nguyễn Hoàng Khương | E-commerce & Business</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f3ee;
+      --surface: #fffefa;
+      --ink: #172a3a;
+      --muted: #64727c;
+      --line: #dedfd9;
+      --copper: #aa7554;
+      --copper-dark: #85563a;
+      --navy-soft: #e9eef0;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", sans-serif;
+      --display: "Manrope", sans-serif;
+      --content: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
+    .wrap { width: min(var(--content), calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid rgb(23 42 58 / 8%);
+      background: rgb(245 243 238 / 92%);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-family: var(--display);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      text-decoration: none;
+    }
+    .brand span { color: var(--copper); }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--copper-dark); }
+    .nav-links .nav-contact {
+      padding: 10px 17px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      color: var(--ink);
+    }
+    .nav-links .nav-contact:hover { background: var(--ink); color: white; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 106px 0 100px;
+    }
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      top: 42px;
+      right: max(-100px, calc((100vw - var(--content)) / 2 - 200px));
+      width: 500px;
+      height: 500px;
+      border: 1px solid rgb(170 117 84 / 20%);
+      border-radius: 50%;
+      box-shadow: 0 0 0 52px rgb(170 117 84 / 3%), 0 0 0 105px rgb(170 117 84 / 2%);
+      content: "";
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin: 0 0 22px;
+      color: var(--copper-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 28px; height: 1px; background: var(--copper); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 850px;
+      margin-bottom: 24px;
+      font-family: var(--display);
+      font-size: clamp(46px, 7vw, 82px);
+      font-weight: 600;
+      letter-spacing: -.075em;
+      line-height: 1.08;
+    }
+    h1 em {
+      color: var(--copper-dark);
+      font-family: var(--serif);
+      font-weight: 400;
+      letter-spacing: -.055em;
+    }
+    .hero-copy { max-width: 620px; margin-bottom: 32px; color: var(--muted); font-size: 18px; }
+    .hero-copy strong { color: var(--ink); font-weight: 600; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: var(--copper-dark); border-color: var(--copper-dark); }
+    .button-secondary { background: transparent; color: var(--ink); }
+    .button-secondary:hover { color: white; }
+    .button svg { width: 16px; height: 16px; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 25px;
+      margin-top: 54px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 8px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--copper); }
+
+    section { padding: 92px 0; }
+    .section-heading { max-width: 650px; margin-bottom: 40px; }
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-family: var(--display);
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 600;
+      letter-spacing: -.06em;
+      line-height: 1.2;
+    }
+    .section-heading > p:last-child { margin-bottom: 0; color: var(--muted); }
+    .about { border-top: 1px solid var(--line); background: var(--surface); }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; align-items: start; }
+    .about-stamp {
+      min-height: 310px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 29px;
+      background: var(--ink);
+      color: white;
+    }
+    .about-stamp .monogram {
+      color: #e8cbb5;
+      font-family: var(--serif);
+      font-size: 94px;
+      letter-spacing: -.09em;
+      line-height: 1;
+    }
+    .about-stamp p { max-width: 180px; margin: 0; color: #d3dade; font-size: 13px; }
+    .about-copy p { margin-bottom: 18px; color: var(--muted); }
+    .about-copy p strong { color: var(--ink); font-weight: 700; }
+    .quote {
+      margin: 28px 0 0;
+      padding: 2px 0 2px 20px;
+      border-left: 2px solid var(--copper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    .journey { background: var(--paper); }
+    .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .timeline-card {
+      position: relative;
+      min-height: 256px;
+      padding: 29px 30px 28px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .timeline-card:hover, .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgb(170 117 84 / 55%);
+      box-shadow: 0 16px 36px rgb(23 42 58 / 7%);
+    }
+    .timeline-top { display: flex; justify-content: space-between; gap: 12px; }
+    .timeline-date { color: var(--copper-dark); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .timeline-index { color: #aab3b6; font-family: var(--serif); font-size: 22px; }
+    .timeline-card h3 { margin: 28px 0 5px; font-family: var(--display); font-size: 23px; letter-spacing: -.04em; }
+    .timeline-card .role { margin-bottom: 14px; color: var(--copper-dark); font-size: 13px; font-weight: 700; }
+    .timeline-card > p:last-child { margin-bottom: 0; color: var(--muted); font-size: 14px; }
+    .timeline-card .tag {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 4px 9px;
+      border-radius: 2px;
+      background: var(--navy-soft);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .skills { background: var(--surface); }
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .skill-card {
+      min-height: 187px;
+      padding: 23px 20px;
+      border: 1px solid var(--line);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .skill-number { display: block; margin-bottom: 26px; color: var(--copper-dark); font-family: var(--serif); font-size: 15px; }
+    .skill-card h3 { margin-bottom: 8px; font-family: var(--display); font-size: 16px; letter-spacing: -.03em; }
+    .skill-card p { margin-bottom: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .contact { padding: 86px 0; background: var(--ink); color: white; }
+    .contact-grid { display: grid; grid-template-columns: 1fr .8fr; gap: 80px; align-items: end; }
+    .contact .eyebrow { color: #e8cbb5; }
+    .contact h2 {
+      max-width: 630px;
+      margin-bottom: 17px;
+      font-family: var(--display);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 500;
+      letter-spacing: -.065em;
+      line-height: 1.12;
+    }
+    .contact-copy { max-width: 490px; margin-bottom: 0; color: #c3cdd1; }
+    .contact-details { padding-left: 26px; border-left: 1px solid #53616a; }
+    .contact-label { margin-bottom: 6px; color: #b8c2c7; font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .contact-address { margin-bottom: 0; font-size: 14px; line-height: 1.8; }
+    footer { padding: 22px 0; background: #10202d; color: #aeb9be; }
+    .footer-row { display: flex; justify-content: space-between; gap: 16px; font-size: 11px; }
+    .footer-row p { margin: 0; }
+
+    #celebration-canvas {
+      position: fixed;
+      z-index: 6;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .wish-toast {
+      position: fixed;
+      z-index: 8;
+      right: 24px;
+      bottom: 96px;
+      width: min(360px, calc(100vw - 32px));
+      padding: 18px 20px;
+      border: 1px solid rgb(232 203 181 / 55%);
+      border-radius: 8px;
+      background: #172a3a;
+      box-shadow: 0 16px 40px rgb(16 32 45 / 22%);
+      color: #fffefa;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .wish-toast.is-visible { opacity: 1; transform: translateY(0); }
+    .wish-toast strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #e8cbb5;
+      font-family: var(--display);
+      font-size: 13px;
+    }
+    .wish-toast p { margin: 0; font-size: 14px; line-height: 1.6; }
+    .music-toggle {
+      position: fixed;
+      z-index: 9;
+      right: 22px;
+      bottom: 20px;
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      gap: 11px;
+      padding: 7px 16px 7px 9px;
+      border: 1px solid rgb(255 255 255 / 13%);
+      border-radius: 999px;
+      background: #172a3a;
+      box-shadow: 0 8px 24px rgb(16 32 45 / 20%);
+      color: #fffefa;
+      cursor: pointer;
+      font: 600 12px var(--sans);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .music-toggle:hover { transform: translateY(-2px); background: #243d50; }
+    .music-disc {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgb(232 203 181 / 50%);
+      border-radius: 50%;
+      background: #223b4c;
+      color: #e8cbb5;
+      font-size: 17px;
+    }
+    .music-toggle.is-playing .music-disc { animation: disc-spin 7s linear infinite; }
+    .music-status { color: #e8cbb5; font-weight: 400; }
+    @keyframes disc-spin { to { transform: rotate(360deg); } }
+    @media (max-width: 420px) {
+      .music-toggle { right: 14px; bottom: 14px; }
+      .wish-toast { right: 16px; bottom: 78px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .music-toggle.is-playing .music-disc { animation: none; }
+      .wish-toast { transition: none; }
+    }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(var(--content), calc(100% - 36px)); }
+      .nav { min-height: 66px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      .nav-links a:nth-child(2), .nav-links a:nth-child(3) { display: none; }
+      .hero { padding: 82px 0 72px; }
+      .hero::after { top: 70px; right: -300px; opacity: .7; }
+      .hero-copy { font-size: 16px; }
+      .hero-meta { margin-top: 38px; }
+      section { padding: 70px 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-stamp { min-height: 220px; }
+      .about-stamp .monogram { font-size: 74px; }
+      .timeline { grid-template-columns: 1fr; }
+      .timeline-card { min-height: auto; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 38px; }
+      .contact-details { padding-left: 18px; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: 12px; }
+      .nav-links { gap: 10px; }
+      .nav-links .nav-contact { padding: 8px 11px; }
+      .hero { padding-top: 68px; }
+      .actions { align-items: stretch; flex-direction: column; }
+      .button { width: 100%; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-card { min-height: 150px; }
+      .skill-number { margin-bottom: 16px; }
+      .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Điều hướng chính">
+      <a class="brand" href="#home" aria-label="Nguyễn Hoàng Khương — về đầu trang">NGUYỄN HOÀNG <span>KHƯƠNG</span></a>
+      <div class="nav-links">
+        <a href="#about">Giới thiệu</a>
+        <a href="#journey">Hành trình</a>
+        <a href="#skills">Năng lực</a>
+        <a class="nav-contact" href="#contact">Liên hệ <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="home" aria-labelledby="hero-title">
+      <p class="eyebrow">Hồ sơ cá nhân · TP. Hồ Chí Minh</p>
+      <h1 id="hero-title">Xin chào, tôi là<br><em>Nguyễn Hoàng Khương.</em></h1>
+      <p class="hero-copy">
+        Tôi đang xây dựng con đường trở thành <strong>chuyên viên Thương mại Điện tử</strong> —
+        kết nối trải nghiệm vận hành thực tế với tư duy phân tích kinh doanh và tinh thần học hỏi bền bỉ.
+      </p>
+      <div class="actions">
+        <a class="button" href="#journey">Khám phá hành trình <span aria-hidden="true">↓</span></a>
+        <a class="button button-secondary" href="#contact">Kết nối với tôi <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-meta" aria-label="Thông tin tóm tắt">
+        <span><i class="dot" aria-hidden="true"></i> Làm việc tại Woody House</span>
+        <span><i class="dot" aria-hidden="true"></i> Sinh viên E-commerce, UEH</span>
+        <span><i class="dot" aria-hidden="true"></i> Quận 1, TP. Hồ Chí Minh</span>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-grid wrap">
+        <div class="about-stamp" aria-label="Dấu ấn cá nhân">
+          <span class="monogram" aria-hidden="true">NK.</span>
+          <p>Thực tế trong hành động.<br>Hệ thống trong tư duy.</p>
+        </div>
+        <div class="about-copy">
+          <div class="section-heading">
+            <p class="eyebrow">01 / Về tôi</p>
+            <h2 id="about-title">Học từ thực tế.<br>Phát triển bằng tư duy.</h2>
+          </div>
+          <p>
+            Tôi là <strong>Nguyễn Hoàng Khương</strong>, hiện làm việc tại Woody House và theo học
+            ngành Thương mại Điện tử tại Trường Đại học Kinh tế TP. Hồ Chí Minh (UEH).
+            Hai hành trình song song cho tôi cơ hội nhìn hoạt động kinh doanh từ cả góc độ thực thi
+            lẫn nền tảng kiến thức chuyên môn.
+          </p>
+          <p>
+            Từ trải nghiệm tham gia quản lý và vận hành, tôi hiểu rằng một hoạt động kinh doanh hiệu quả
+            cần sự phối hợp nhịp nhàng giữa quy trình, con người và trải nghiệm khách hàng. Tại UEH,
+            tôi đang từng bước bổ sung nền tảng về thương mại điện tử, phân tích hệ thống và tiếp thị số
+            để hiểu sâu hơn cách công nghệ hỗ trợ doanh nghiệp tạo ra giá trị.
+          </p>
+          <p>
+            Tôi hướng đến việc biến những quan sát từ thực tế thành câu hỏi đúng, dữ liệu thành góc nhìn,
+            và góc nhìn thành giải pháp có ích — với sự tò mò, tinh thần trách nhiệm và thái độ luôn sẵn sàng học hỏi.
+          </p>
+          <blockquote class="quote">“Kết nối điều doanh nghiệp cần với điều khách hàng thực sự trân trọng.”</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey" id="journey" aria-labelledby="journey-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">02 / Hành trình</p>
+          <h2 id="journey-title">Kinh nghiệm thực tiễn,<br>nền tảng học thuật.</h2>
+          <p>Mỗi trải nghiệm là một bước giúp tôi nhìn rõ hơn cách doanh nghiệp vận hành và phát triển trong môi trường số.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-date">2022 — Hiện tại</span>
+              <span class="timeline-index" aria-hidden="true">01</span>
+            </div>
+            <h3>Woody House</h3>
+            <p class="role">Công việc &amp; trải nghiệm vận hành</p>
+            <p>Tham gia quản lý, vận hành và phối hợp công việc thực tế; tích lũy góc nhìn về quy trình kinh doanh và cách tạo nên trải nghiệm nhất quán cho khách hàng.</p>
+            <span class="tag">Kinh nghiệm thực tiễn</span>
+          </article>
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <span class="timeline-date">2024 — Hiện tại</span>
+              <span class="timeline-index" aria-hidden="true">02</span>
+            </div>
+            <h3>Đại học Kinh tế TP.HCM · UEH</h3>
+            <p class="role">Sinh viên ngành Thương mại Điện tử</p>
+            <p>Phát triển nền tảng kiến thức về kinh doanh số, tiếp thị và phân tích; từng bước kết nối lý thuyết với những tình huống quan sát được trong công việc.</p>
+            <span class="tag">Đang học tập</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills" id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">03 / Năng lực cốt lõi</p>
+          <h2 id="skills-title">Những năng lực tôi<br>đang rèn luyện mỗi ngày.</h2>
+          <p>Sự kết hợp giữa trải nghiệm công việc và quá trình học tập tạo nên nền tảng để tôi tiếp tục phát triển.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <span class="skill-number">01</span>
+            <h3>Vận hành thương mại điện tử</h3>
+            <p>Quan tâm đến quy trình, phối hợp vận hành và hiệu quả hoạt động trên môi trường số.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">02</span>
+            <h3>Tư duy phân tích hệ thống</h3>
+            <p>Rèn luyện khả năng nhìn vấn đề theo quy trình, liên kết dữ liệu và mục tiêu kinh doanh.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">03</span>
+            <h3>Trải nghiệm khách hàng</h3>
+            <p>Chú trọng thấu hiểu nhu cầu và xây dựng hành trình khách hàng rõ ràng, nhất quán.</p>
+          </article>
+          <article class="skill-card">
+            <span class="skill-number">04</span>
+            <h3>Digital Marketing</h3>
+            <p>Quan tâm đến cách nội dung, kênh số và thông điệp góp phần kết nối thương hiệu với khách hàng.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-grid wrap">
+        <div>
+          <p class="eyebrow">04 / Kết nối</p>
+          <h2 id="contact-title">Cùng trao đổi về những ý tưởng tạo giá trị.</h2>
+          <p class="contact-copy">Tôi luôn trân trọng cơ hội học hỏi, kết nối và khám phá những góc nhìn mới trong lĩnh vực thương mại điện tử.</p>
+        </div>
+        <div class="contact-details">
+          <p class="contact-label">Địa chỉ làm việc</p>
+          <p class="contact-address">
+            Woody House<br>
+            41 Trần Đình Xu, Phường Cầu Ông Lãnh<br>
+            Quận 1, TP. Hồ Chí Minh
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-row wrap">
+      <p>© 2026 Nguyễn Hoàng Khương</p>
+      <p>Được thiết kế với sự chỉn chu và tinh thần học hỏi.</p>
+    </div>
+  </footer>
+  <canvas id="celebration-canvas" aria-hidden="true"></canvas>
+  <div class="wish-toast" id="wish-toast" role="status" aria-live="polite" aria-atomic="true">
+    <strong>Một lời tri ân gửi đến Thầy Cô</strong>
+    <p id="wish-message"></p>
+  </div>
+  <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false" aria-label="Bật nhạc nền tri ân">
+    <span class="music-disc" aria-hidden="true">♫</span>
+    <span><span id="music-label">Bật nhạc tri ân</span><br><span class="music-status" id="music-status">Âm thanh đang tắt</span></span>
+  </button>
+  <script>
+    (() => {
+      const canvas = document.getElementById("celebration-canvas");
+      const context = canvas.getContext("2d");
+      const toast = document.getElementById("wish-toast");
+      const wishMessage = document.getElementById("wish-message");
+      const musicButton = document.getElementById("music-toggle");
+      const musicLabel = document.getElementById("music-label");
+      const musicStatus = document.getElementById("music-status");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const colors = ["#d98d83", "#d9b36f", "#94b6a2", "#a9b5d0", "#d9a8bd", "#e7c994"];
+      const wishes = [
+        "Kính chúc Quý Thầy Cô luôn dồi dào sức khỏe, giữ vững ngọn lửa nhiệt huyết để tiếp tục lái những chuyến đò tri thức!",
+        "Tri ân những người thầy, người cô đã luôn tận tụy đồng hành và truyền cảm hứng trên con đường học tập.",
+        "Chúc mừng ngày Nhà giáo Việt Nam 20/11! Cảm ơn Thầy Cô đã mở ra những chân trời tri thức mới.",
+        "Kính chúc Thầy Cô luôn an vui, hạnh phúc và nhận lại thật nhiều yêu thương từ những thế hệ học trò.",
+        "Mỗi bài học và lời động viên của Thầy Cô là hành trang quý giá. Xin gửi lời biết ơn chân thành nhân ngày 20/11.",
+        "Chúc những người gieo mầm tri thức luôn vững vàng, sáng tạo và tìm thấy niềm vui trong từng thế hệ học trò.",
+        "Cảm ơn Thầy Cô đã kiên nhẫn nâng đỡ những ước mơ và khơi dậy sự tự tin trong mỗi chúng em.",
+        "Kính chúc Thầy Cô một ngày 20/11 ấm áp, ngập tràn niềm vui và những lời tri ân chân thành."
+      ];
+      const bubbles = [];
+      const particles = [];
+      let width = 0;
+      let height = 0;
+      let pixelRatio = 1;
+      let toastTimer;
+      let audioContext;
+      let musicNodes = [];
+      let musicTimer;
+      let melodyIndex = 0;
+      let previousFrameTime = 0;
+
+      const random = (min, max) => min + Math.random() * (max - min);
+      const createBubble = (y = random(-height, height)) => ({
+        x: random(15, Math.max(16, width - 15)),
+        y,
+        radius: random(11, 25),
+        speed: random(16, 38),
+        sway: random(8, 24),
+        phase: random(0, Math.PI * 2),
+        opacity: random(0.52, 0.82),
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: ["bubble", "heart", "star", "flower", "leaf"][Math.floor(Math.random() * 5)]
+      });
+
+      function resizeCanvas() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * pixelRatio);
+        canvas.height = Math.round(height * pixelRatio);
+        context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+        if (!bubbles.length) {
+          const count = width < 600 ? 12 : 20;
+          for (let i = 0; i < count; i++) bubbles.push(createBubble(random(0, height)));
+        }
+      }
+
+      function drawShape(shape, x, y, radius, color, opacity) {
+        context.save();
+        context.translate(x, y);
+        context.globalAlpha = opacity;
+        context.fillStyle = color;
+        context.strokeStyle = color;
+        context.lineWidth = 1.5;
+        context.beginPath();
+
+        if (shape === "bubble") {
+          context.arc(0, 0, radius * 0.72, 0, Math.PI * 2);
+          context.fill();
+          context.globalAlpha = Math.min(1, opacity + 0.12);
+          context.beginPath();
+          context.ellipse(-radius * 0.22, -radius * 0.25, radius * 0.17, radius * 0.1, -0.5, 0, Math.PI * 2);
+          context.fillStyle = "#fff";
+          context.fill();
+        } else if (shape === "heart") {
+          const r = radius * 0.75;
+          context.moveTo(0, r * 0.8);
+          context.bezierCurveTo(-r * 1.8, -r * 0.35, -r * 0.7, -r * 1.55, 0, -r * 0.75);
+          context.bezierCurveTo(r * 0.7, -r * 1.55, r * 1.8, -r * 0.35, 0, r * 0.8);
+          context.fill();
+        } else if (shape === "star") {
+          for (let i = 0; i < 10; i++) {
+            const angle = -Math.PI / 2 + i * Math.PI / 5;
+            const r = i % 2 === 0 ? radius * 0.85 : radius * 0.38;
+            const px = Math.cos(angle) * r;
+            const py = Math.sin(angle) * r;
+            if (i === 0) context.moveTo(px, py);
+            else context.lineTo(px, py);
+          }
+          context.closePath();
+          context.fill();
+        } else if (shape === "flower") {
+          for (let i = 0; i < 5; i++) {
+            const angle = i * Math.PI * 2 / 5;
+            context.moveTo(Math.cos(angle) * radius * 0.3, Math.sin(angle) * radius * 0.3);
+            context.arc(Math.cos(angle) * radius * 0.42, Math.sin(angle) * radius * 0.42, radius * 0.3, 0, Math.PI * 2);
+          }
+          context.fill();
+          context.beginPath();
+          context.arc(0, 0, radius * 0.19, 0, Math.PI * 2);
+          context.fillStyle = "#fff3cf";
+          context.fill();
+        } else {
+          context.ellipse(0, 0, radius * 0.48, radius * 0.82, -0.65, 0, Math.PI * 2);
+          context.fill();
+          context.globalAlpha = Math.min(1, opacity + 0.1);
+          context.beginPath();
+          context.moveTo(-radius * 0.42, radius * 0.55);
+          context.lineTo(radius * 0.42, -radius * 0.55);
+          context.stroke();
+        }
+        context.restore();
+      }
+
+      function showWish() {
+        wishMessage.textContent = wishes[Math.floor(Math.random() * wishes.length)];
+        toast.classList.add("is-visible");
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 3800);
+      }
+
+      function playPop() {
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          const audio = audioContext || (audioContext = new AudioContextClass());
+          if (audio.state === "suspended") audio.resume();
+          const oscillator = audio.createOscillator();
+          const gain = audio.createGain();
+          oscillator.type = "sine";
+          oscillator.frequency.setValueAtTime(660, audio.currentTime);
+          oscillator.frequency.exponentialRampToValueAtTime(240, audio.currentTime + 0.09);
+          gain.gain.setValueAtTime(0.12, audio.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + 0.1);
+          oscillator.connect(gain);
+          gain.connect(audio.destination);
+          oscillator.start();
+          oscillator.stop(audio.currentTime + 0.11);
+        } catch (error) {
+          console.info("Âm thanh pop không khả dụng trên trình duyệt này.", error);
+        }
+      }
+
+      function burst(bubble) {
+        const x = bubble.x + Math.sin(bubble.phase) * bubble.sway;
+        for (let i = 0; i < 9; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = random(35, 115);
+          particles.push({
+            x, y: bubble.y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            radius: random(1.5, 3.5),
+            color: bubble.color,
+            life: 1
+          });
+        }
+        playPop();
+        showWish();
+      }
+
+      function draw(time) {
+        context.clearRect(0, 0, width, height);
+        const delta = previousFrameTime ? Math.min((time - previousFrameTime) / 1000, 0.05) : 1 / 60;
+        previousFrameTime = time;
+        const seconds = time / 1000;
+        bubbles.forEach((bubble) => {
+          if (!reducedMotion) {
+            bubble.y += bubble.speed * delta;
+            if (bubble.y - bubble.radius > height) Object.assign(bubble, createBubble(-bubble.radius));
+          }
+          drawShape(
+            bubble.shape,
+            bubble.x + Math.sin(seconds * 0.8 + bubble.phase) * bubble.sway,
+            bubble.y,
+            bubble.radius,
+            bubble.color,
+            bubble.opacity
+          );
+        });
+
+        for (let i = particles.length - 1; i >= 0; i--) {
+          const particle = particles[i];
+          particle.x += particle.vx * delta;
+          particle.y += particle.vy * delta;
+          particle.vy += 72 * delta;
+          particle.life -= delta / 0.8;
+          if (particle.life <= 0) {
+            particles.splice(i, 1);
+            continue;
+          }
+          context.globalAlpha = particle.life;
+          context.fillStyle = particle.color;
+          context.beginPath();
+          context.arc(particle.x, particle.y, particle.radius * particle.life, 0, Math.PI * 2);
+          context.fill();
+        }
+        context.globalAlpha = 1;
+        window.requestAnimationFrame(draw);
+      }
+
+      window.addEventListener("pointerdown", (event) => {
+        for (let i = bubbles.length - 1; i >= 0; i--) {
+          const bubble = bubbles[i];
+          const x = bubble.x + Math.sin(performance.now() / 1000 * 0.8 + bubble.phase) * bubble.sway;
+          const hitRadius = bubble.radius + 9;
+          if (Math.hypot(event.clientX - x, event.clientY - bubble.y) <= hitRadius) {
+            burst(bubble);
+            Object.assign(bubble, createBubble(-bubble.radius));
+            break;
+          }
+        }
+      });
+
+      function playMelodyNote() {
+        if (!audioContext || audioContext.state !== "running") return;
+        const notes = [392, 440, 523.25, 440, 349.23, 392, 440, 392];
+        const now = audioContext.currentTime;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = "sine";
+        oscillator.frequency.value = notes[melodyIndex++ % notes.length];
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.025, now + 0.12);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+        oscillator.connect(gain);
+        gain.connect(audioContext.destination);
+        oscillator.start(now);
+        oscillator.stop(now + 1.55);
+      }
+
+      function startMusic() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          musicStatus.textContent = "Trình duyệt không hỗ trợ âm thanh";
+          return false;
+        }
+        try {
+          audioContext = audioContext || new AudioContextClass();
+          audioContext.resume();
+          const now = audioContext.currentTime;
+          const master = audioContext.createGain();
+          const filter = audioContext.createBiquadFilter();
+          filter.type = "lowpass";
+          filter.frequency.value = 900;
+          master.gain.setValueAtTime(0.0001, now);
+          master.gain.exponentialRampToValueAtTime(0.055, now + 2.5);
+          filter.connect(master);
+          master.connect(audioContext.destination);
+          [220, 261.63, 329.63].forEach((frequency, index) => {
+            const oscillator = audioContext.createOscillator();
+            const voice = audioContext.createGain();
+            oscillator.type = index === 1 ? "triangle" : "sine";
+            oscillator.frequency.value = frequency;
+            voice.gain.value = index === 0 ? 0.25 : 0.12;
+            oscillator.connect(voice);
+            voice.connect(filter);
+            oscillator.start();
+            musicNodes.push(oscillator, voice);
+          });
+          musicNodes.push(filter, master);
+          melodyIndex = 0;
+          playMelodyNote();
+          musicTimer = window.setInterval(playMelodyNote, 1900);
+          musicButton.classList.add("is-playing");
+          musicButton.setAttribute("aria-pressed", "true");
+          musicButton.setAttribute("aria-label", "Tắt nhạc nền tri ân");
+          musicLabel.textContent = "Tắt nhạc tri ân";
+          musicStatus.textContent = "Nhạc thư giãn đang phát";
+          return true;
+        } catch (error) {
+          musicStatus.textContent = "Không thể phát âm thanh";
+          console.info("Không thể khởi tạo nhạc nền.", error);
+          return false;
+        }
+      }
+
+      function stopMusic() {
+        window.clearInterval(musicTimer);
+        musicNodes.forEach((node) => {
+          try {
+            if (typeof node.stop === "function") node.stop();
+            node.disconnect();
+          } catch (error) {
+            if (error.name !== "InvalidStateError") console.info("Không thể dừng một nguồn âm thanh.", error);
+          }
+        });
+        musicNodes = [];
+        musicButton.classList.remove("is-playing");
+        musicButton.setAttribute("aria-pressed", "false");
+        musicButton.setAttribute("aria-label", "Bật nhạc nền tri ân");
+        musicLabel.textContent = "Bật nhạc tri ân";
+        musicStatus.textContent = "Âm thanh đang tắt";
+      }
+
+      musicButton.addEventListener("click", () => {
+        if (musicButton.getAttribute("aria-pressed") === "true") stopMusic();
+        else startMusic();
+      });
+
+      window.addEventListener("resize", resizeCanvas, { passive: true });
+      resizeCanvas();
+      window.requestAnimationFrame(draw);
+    })();
+  </script>
+</body>
+</html>
